@@ -3,7 +3,7 @@ import './App.css';
 import Navbar from './Navbar';
 
 import AboutMe from './About_me';
-// import Main from './Main';
+import Home from './Home';
 import Skills from './Skills';
 import WhyHireMe from './WhyHireMe';
 import Projects from './projects';
@@ -35,7 +35,7 @@ function App() {
     <div className="App">
       
       <Navbar/>
-      {/* <Main id="mainy" /> */}
+      <Home id="mainy" />
       <AboutMe id="aboutMey" />
       <WhyHireMe />
       <Skills id="skills" />
