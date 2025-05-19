@@ -29,7 +29,7 @@
 .Main{
     display:flex;
     justify-content: center;
-    margin-top: 10%;
+    margin-top: 50px;
 }
 .main_left{
     width:45%;

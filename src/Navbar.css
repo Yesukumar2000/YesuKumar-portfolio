@@ -1,37 +1,44 @@
-.navbar{
-    position: fixed;
+.navbar {
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1000;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    width:100%;
-    height:100px;
-    background-color: #151925;
-    transition: top 0.3s;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 60px; /* Adjusted height for mobile */
+  background-color: #151925;
+  transition: top 0.3s;
+  padding: 0 20px; /* Added padding for mobile */
+ margin-bottom: 10px;
 }
-.left{
-    width:35%;
-    display: flex;
-    justify-content: left;
+
+.left {
+  width: auto; /* Adjusted width for mobile */
+  display: flex;
+  justify-content: left;
+  align-items: center;
 }
-.right{
-    width:55%;
-    display: flex;
-    justify-content: space-around;
+
+.right {
+  display: flex;
+  justify-content: space-around;
 }
-.button{
-    font-family: "Inter", sans-serif;
-    font-weight: 500;
-    background-color: transparent;
-    border-color: transparent;
-    width:120px;
-    height:30px;
-    font-size: 18px;
-    color:#03B0FD;
-    cursor: pointer;
+
+.button {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  background-color: transparent;
+  border-color: transparent;
+  width: 100px; /* Adjusted width for mobile */
+  height: 30px;
+  font-size: 16px; /* Adjusted font size for mobile */
+  color: #03B0FD;
+  cursor: pointer;
+  margin-left: 15px; /* Added margin for spacing on desktop */
 }
+
 .button {
   position: relative;
   border: none;
@@ -65,93 +72,163 @@
   transition-property: width, left;
 }
 
+body {
+  background-color: #151925;
+}
 
-body{
+.title {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-size: 20px; /* Adjusted font size for mobile */
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+  .right {
+    display: none; /* Hide desktop menu on mobile */
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+  }
+
+  .bar {
+    width: 100%;
+    height: 3px;
+    background-color: #fff;
+    transition: 0.3s;
+  }
+
+  .menu-icon.open .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.open .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  .mobile-menu {
+    position: fixed;
+    top: 60px; /* Below the header */
+    left: 0;
+    width: 100%;
     background-color: #151925;
-}
-.title{
-    color:white;
-    font-family:"Poppins", sans-serif;
-    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    z-index: 999; /* Below the main navbar but above other content */
+  }
+
+  .mobile-button {
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    background-color: transparent;
+    border-color: transparent;
+    color: #03B0FD;
+    cursor: pointer;
+    font-size: 18px;
+    padding: 10px 20px;
+    margin: 10px 0;
+    text-decoration: none;
+  }
+
+  .mobile-button:focus,
+  .mobile-button:hover {
+    color: #fff;
+  }
 }
 
-
+/* Typing animation (no changes needed) */
 @keyframes typing {
-    /* web developer */
-    0%, 27.3488% { content: ""; }
-    1.667%, 48.2093% { content: "w"; }
-    3.334%, 46.0698% { content: "we"; }
-    5.001%, 44.9302% { content: "web"; }
-    6.668%, 42.7907% { content: "web "; }
-    8.335%, 40.6512% { content: "web d"; }
-    11.669%, 38.5116% { content: "web de"; }
-    13.336%, 36.3721% { content: "web dev"; }
-    15.003%, 34.2326% { content: "web deve"; }
-    16.670%, 32.0930% { content: "web devel"; }
-    19.3953%, 31.9535% { content: "web develo"; }
-    21.5349%, 29.8140% { content: "web develop"; }
-    23.6744%, 28.6744% { content: "web develope"; }
-    25.8140%, 26.5349% { content: "web developer"; }
-   
-    
+  /* web developer */
+  0%, 27.3488% { content: ""; }
+  1.667%, 48.2093% { content: "w"; }
+  3.334%, 46.0698% { content: "we"; }
+  5.001%, 44.9302% { content: "web"; }
+  6.668%, 42.7907% { content: "web "; }
+  8.335%, 40.6512% { content: "web d"; }
+  11.669%, 38.5116% { content: "web de"; }
+  13.336%, 36.3721% { content: "web dev"; }
+  15.003%, 34.2326% { content: "web deve"; }
+  16.670%, 32.0930% { content: "web devel"; }
+  19.3953%, 31.9535% { content: "web develo"; }
+  21.5349%, 29.8140% { content: "web develop"; }
+  23.6744%, 28.6744% { content: "web develope"; }
+  25.8140%, 26.5349% { content: "web developer"; }
 
-    /* mern stack developer */
-    80.1164%, 79.9302% { content: ""; }
-    81.2558%, 78.7907% { content: "m"; }
-    82.3953%, 77.6512% { content: "me"; }
-    83.5349%, 76.5116% { content: "mer"; }
-    84.6744%, 75.3721% { content: "mern"; }
-    85.8140%, 74.2326% { content: "mern "; }
-    86.9535%, 73.0930% { content: "mern s"; }
-    88.0930%, 71.9535% { content: "mern st"; }
-    89.2326%, 70.8140% { content: "mern sta"; }
-    90.3721%, 69.6744% { content: "mern stac"; }
-    91.5116%, 68.5349% { content: "mern stack"; }
-    92.6512%, 67.3953% { content: "mern stack "; }
-    93.7907%, 66.2558% { content: "mern stack d"; }
-    94.9302%, 65.1163% { content: "mern stack de"; }
-    96.0698%, 63.9767% { content: "mern stack dev"; }
-    97.2093%, 62.8372% { content: "mern stack deve"; }
-    98.3488%, 61.6977% { content: "mern stack devel"; }
-    99.4884%, 60.5581% { content: "mern stack develo"; }
-    100%, 59.4186% { content: "mern stack develop"; }
-    100%, 58.2791% { content: "mern stack develope"; }
-    100%, 57.1395% { content: "mern stack developer"; }
 
-    /* react js developer */
-    100%, 55.9302% { content: ""; }
-    100%, 54.7907% { content: "r"; }
-    100%, 53.6512% { content: "re"; }
-    100%, 52.5116% { content: "rea"; }
-    100%, 51.3721% { content: "reac"; }
-    100%, 50.2326% { content: "react"; }
-    100%, 49.0930% { content: "react "; }
-    100%, 47.9535% { content: "react j"; }
-    100%, 46.8140% { content: "react js"; }
-    100%, 45.6744% { content: "react js "; }
-    100%, 44.5349% { content: "react js d"; }
-    100%, 43.3953% { content: "react js de"; }
-    100%, 42.2558% { content: "react js dev"; }
-    100%, 41.1163% { content: "react js deve"; }
-    100%, 39.9767% { content: "react js devel"; }
-    100%, 38.8372% { content: "react js develo"; }
-    100%, 37.6977% { content: "react js develop"; }
-    100%, 36.5581% { content: "react js develope"; }
-    100%, 35.4186% { content: "react js developer"; }
-  
- }
+  /* mern stack developer */
+  80.1164%, 79.9302% { content: ""; }
+  81.2558%, 78.7907% { content: "m"; }
+  82.3953%, 77.6512% { content: "me"; }
+  83.5349%, 76.5116% { content: "mer"; }
+  84.6744%, 75.3721% { content: "mern"; }
+  85.8140%, 74.2326% { content: "mern "; }
+  86.9535%, 73.0930% { content: "mern s"; }
+  88.0930%, 71.9535% { content: "mern st"; }
+  89.2326%, 70.8140% { content: "mern sta"; }
+  90.3721%, 69.6744% { content: "mern stac"; }
+  91.5116%, 68.5349% { content: "mern stack"; }
+  92.6512%, 67.3953% { content: "mern stack "; }
+  93.7907%, 66.2558% { content: "mern stack d"; }
+  94.9302%, 65.1163% { content: "mern stack de"; }
+  96.0698%, 63.9767% { content: "mern stack dev"; }
+  97.2093%, 62.8372% { content: "mern stack deve"; }
+  98.3488%, 61.6977% { content: "mern stack devel"; }
+  99.4884%, 60.5581% { content: "mern stack develo"; }
+  100%, 59.4186% { content: "mern stack develop"; }
+  100%, 58.2791% { content: "mern stack develope"; }
+  100%, 57.1395% { content: "mern stack developer"; }
 
-  .typewriter {
-    --caret:#03B0FD;
-  }
-  
-  .typewriter::before {
-    content: "";
-    animation: typing 13.5s infinite;
-  }
-  
-  .typewriter::after {
-    content: "";
-    border-right: 1px solid var(--caret);
-    animation: blink 0.5s linear infinite;
-  }
+  /* react js developer */
+  100%, 55.9302% { content: ""; }
+  100%, 54.7907% { content: "r"; }
+  100%, 53.6512% { content: "re"; }
+  100%, 52.5116% { content: "rea"; }
+  100%, 51.3721% { content: "reac"; }
+  100%, 50.2326% { content: "react"; }
+  100%, 49.0930% { content: "react "; }
+  100%, 47.9535% { content: "react j"; }
+  100%, 46.8140% { content: "react js"; }
+  100%, 45.6744% { content: "react js "; }
+  100%, 44.5349% { content: "react js d"; }
+  100%, 43.3953% { content: "react js de"; }
+  100%, 42.2558% { content: "react js dev"; }
+  100%, 41.1163% { content: "react js deve"; }
+  100%, 39.9767% { content: "react js devel"; }
+  100%, 38.8372% { content: "react js develo"; }
+  100%, 37.6977% { content: "react js develop"; }
+  100%, 36.5581% { content: "react js develope"; }
+  100%, 35.4186% { content: "react js developer"; }
+
+}
+
+.typewriter {
+  --caret:#03B0FD;
+}
+
+.typewriter::before {
+  content: "";
+  animation: typing 13.5s infinite;
+}
+
+.typewriter::after {
+  content: "";
+  border-right: 1px solid var(--caret);
+  animation: blink 0.5s linear infinite;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
