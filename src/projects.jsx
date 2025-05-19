@@ -1,8 +1,5 @@
 import React from 'react'
 import Card from './Card';
-// import restaurant from"./images/ivan-stern-LOLSb7m6XkU-unsplash.jpg"
-// import chess from"./images/chess.jpg"
-// import snake from "./images/snake.jpg"
 import Emart from "./images/E-mart.png"
 import FoodBlog from "./images/FoodBlog.png"
 import Travel from"./images/Travelgo.png"
