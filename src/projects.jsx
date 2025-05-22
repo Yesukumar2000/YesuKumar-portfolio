@@ -12,14 +12,14 @@ const Projects = () => {
       altText: 'E-Mart website',
       title: 'E-Mart',
       description: 'A fully functional e-commerce website with product listings, shopping cart, user authentication, and order processing.',
-      explore: 'https://github.com/Yesukumar2000',
+      explore: 'https://e-mart-one.netlify.app/',
     },
     {
       imageUrl: FoodBlog,
       altText: 'Food Blogging App',
       title: 'Food Blogging',
       description: 'A collaborative platform for food enthusiasts to share recipes, reviews, and culinary experiences.',
-      explore: 'https://github.com/Yesukumar2000',
+      explore: 'https://foodbloggingwebsite.netlify.app/',
     },
     {
       imageUrl: Travel,
