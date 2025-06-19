@@ -23,6 +23,7 @@ const Skills = () => {
         </div>
         <div className="flex">
           <SemiDonutChart percentage={70} fill="#03B0FD" txt="React JS"/>
+          <SemiDonutChart percentage={50} fill="#03B0FD" txt="Next JS"/>
           <SemiDonutChart percentage={70} fill="#03B0FD" txt="Node JS"/>
           <SemiDonutChart percentage={60} fill="#03B0FD" txt="Expres JS"/>
           <SemiDonutChart percentage={70} fill="#03B0FD" txt="Mongo DB"/>

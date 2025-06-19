@@ -3,8 +3,8 @@ import Card from './Card';
 import Emart from "./images/E-mart.png"
 import FoodBlog from "./images/FoodBlog.png"
 import Travel from"./images/Travelgo.png"
+import CollegePortal from "./images/CollegePortal.png"
 import { motion } from 'framer-motion';
-
 const Projects = () => {
    const cards = [
     {
@@ -22,11 +22,11 @@ const Projects = () => {
       explore: 'https://foodbloggingwebsite.netlify.app/',
     },
     {
-      imageUrl: Travel,
+      imageUrl: CollegePortal,
       altText: 'College Portal Dashboard',
       title: 'College Portal',
-      description: 'A comprehensive college portal with login and registration for different roles, password recovery, and dedicated dashboards for students and the principal.',
-      explore: 'https://github.com/Yesukumar2000',
+      description: 'A comprehensive college portal with login for different roles like Principal and student, password recovery for student, and dedicated dashboards for students and the principal.Implemented the payment Integration like Razorpay',
+      explore: 'https://college-portal-stcd.vercel.app',
     },
     {
       imageUrl: Travel,
