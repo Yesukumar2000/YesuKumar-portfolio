@@ -17,8 +17,8 @@ const Skills = () => {
       <h3 className='heading2'>Languages</h3>
       <div className="contents">
         <div className="flex">
-          <SemiDonutChart percentage={70} fill="#03B0FD" txt="HTML"/>
-          <SemiDonutChart percentage={45} fill="#03B0FD" txt="CSS"/>
+          <SemiDonutChart percentage={100} fill="#03B0FD" txt="HTML"/>
+          <SemiDonutChart percentage={70} fill="#03B0FD" txt="CSS"/>
           <SemiDonutChart percentage={50} fill="#03B0FD" txt="JavaScript"/>
         </div>
         <div className="flex">
