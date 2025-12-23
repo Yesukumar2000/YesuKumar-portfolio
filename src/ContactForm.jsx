@@ -1,13 +1,15 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState, useRef } from 'react'; // Added useRef
+import emailjs from '@emailjs/browser'; // Import EmailJS
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faPaperPlane, faPhone } from '@fortawesome/free-solid-svg-icons';
-import { faFacebook, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
-
+import { faFacebook, faInstagram, faLinkedin, faTwitter, faGithub } from '@fortawesome/free-brands-svg-icons';
 import BackToTopButton from './BackToTopButton';
 import './stylle.css';
 
 const ContactForm = () => {
+  const formRef = useRef(); // Create a reference for the form
+  const [isSending, setIsSending] = useState(false); // For button status
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,26 +21,37 @@ const ContactForm = () => {
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      const response = await axios.post('http://localhost:3033/api/send', formData); // Adjust URL if needed
-      alert(response.data);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      alert('Error sending email');
-    }
+    setIsSending(true);
 
-    setFormData({
-      name: '',
-      email: '',
-      message: ''
-    });
+    // EmailJS Credentials from your snippet
+    const serviceID = 'default_service';
+    const templateID = 'template_kubsvp8';
+    const publicKey = '3cx53azpgqM0fdR1j';
+
+    // Using sendForm to capture all fields including hidden ones or complex structures
+    emailjs.sendForm(serviceID, templateID, formRef.current, publicKey)
+      .then((result) => {
+        setIsSending(false);
+        alert('Message Sent Successfully! ✅'); // Alert box
+        // Reset the form
+        setFormData({
+          name: '',
+          email: '',
+          message: ''
+        });
+        console.log("Message Sent Successfully!", result.text);
+      }, (error) => {
+        setIsSending(false);
+        console.error('EmailJS Error:', error);
+        alert('Failed to send message. Please try again. ❌');
+      });
   };
 
   return (
     <section id="contact">
-      <h1 className="heading">Contact Me</h1>
+      <h1 className="heading">Contact US</h1>
       <div className="contact-wrapper">
         <div className="direct-contact-container">
           <ul className="contact-list">
@@ -61,25 +74,38 @@ const ContactForm = () => {
           </ul>
           <hr />
           <ul className="social-media-list">
-    <li>
-      <a href="https://www.instagram.com/mangipudivamsi" target="_blank" className="contact-icon" rel="noreferrer">
-        <FontAwesomeIcon icon={faFacebook} aria-hidden="true" />
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/mangipudivamsi" target="_blank" className="contact-icon" rel="noreferrer">
-        <FontAwesomeIcon icon={faInstagram} aria-hidden="true" />
-      </a>
-    </li>
-    <li>
-      <a href="https://www.instagram.com/mangipudivamsi" target="_blank" className="contact-icon" rel="noreferrer">
-        <FontAwesomeIcon icon={faTwitter} aria-hidden="true" />
-      </a>
-    </li>
-  </ul>
+            <li>
+              <a href="https://www.facebook.com/yesukumarkings" target="_blank" className="contact-icon" rel="noreferrer">
+                <FontAwesomeIcon icon={faFacebook} aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/yesukumarkings" target="_blank" className="contact-icon" rel="noreferrer">
+                <FontAwesomeIcon icon={faInstagram} aria-hidden="false" />
+              </a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/yesukumarb/" target="_blank" className="contact-icon" rel="noreferrer">
+                <FontAwesomeIcon icon={faLinkedin} aria-hidden="true" />
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/Yesukumar2000" target="_blank" rel="noreferrer">
+                <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
+              </a>
+            </li>
+            {/* <li>
+              <a href="https://github.com/Yesukumar2000" target="_blank" rel="noreferrer"  className="contact-icon"><img src={github} alt=""  /></a>
+              </li>
+            <li>
+               <a href="https://www.linkedin.com/in/yesukumarb/" target="_blank" rel="noreferrer"  className="contact-icon"><img src={linked_in} alt=""></img></a>
+            </li> */}
+          </ul>
           <hr />
         </div>
-        <form id="contact-form" className="form-horizontal" onSubmit={handleSubmit}>
+
+        {/* Added ref={formRef} to the form */}
+        <form ref={formRef} id="contact-form" className="form-horizontal" onSubmit={handleSubmit}>
           <div className="form-group">
             <div className="col-sm-12">
               <input
@@ -87,7 +113,7 @@ const ContactForm = () => {
                 className="form-control Name"
                 id="name"
                 placeholder="Name"
-                name="name"
+                name="name" // Matches EmailJS Template Variable
                 value={formData.name}
                 onChange={handleChange}
                 required
@@ -101,7 +127,7 @@ const ContactForm = () => {
                 className="form-control Mail"
                 id="email"
                 placeholder="E-Mail"
-                name="email"
+                name="email" // Matches EmailJS Template Variable
                 value={formData.email}
                 onChange={handleChange}
                 required
@@ -112,15 +138,23 @@ const ContactForm = () => {
             className="form-control1"
             rows="10"
             placeholder="Message"
-            name="message"
+            name="message" // Matches EmailJS Template Variable
             value={formData.message}
             onChange={handleChange}
             required
           ></textarea>
-          <button className="btn btn-primary send-button" id="submit" type="submit" value="SEND">
+          
+          <button 
+            className="btn btn-primary send-button" 
+            id="submit" 
+            type="submit" 
+            disabled={isSending}
+          >
             <div className="alt-send-button">
               <FontAwesomeIcon icon={faPaperPlane} className='fa' />
-              <span className="send-text">SEND</span>
+              <span className="send-text">
+                {isSending ? 'SENDING...' : 'SEND'}
+              </span>
             </div>
           </button>
         </form>
@@ -131,4 +165,3 @@ const ContactForm = () => {
 };
 
 export default ContactForm;
-

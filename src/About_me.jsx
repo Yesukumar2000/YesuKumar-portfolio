@@ -26,11 +26,11 @@ const AboutMe = () => {
       className='about_me'  id="aboutMey">
       <h2 className='heading'>About Me</h2>
     <div className="about_me_info">
-        <p className='about_me_left'>Hello! I'm M. Yesu Kumar Bhuvanagiri,Software Engineer with 1+ years of experience at LSN Software Pvt Ltd and Guna Technologies, Seeking a full-time
+        <p className='about_me_left'>Hello! I'm Yesu Kumar Bhuvanagiri,Software Engineer with 1+ years of experience at LSN Software Pvt Ltd and Guna Technologies, Seeking a full-time
       React JS Developer Roles or Mern stack Developer. My journey in web development began with a fascination for
       technology and design. Over the past year, I have honed my skills in building responsive and visually appealing
-      interfaces, specializing in JavaScript and React JS. I am skilled in HTML, CSS,JS, Node js,Express Js and Mongo
-      DB and Material UI. I have experience with version control using Git and GitHub, facilitating effective collaboration
+      interfaces, specializing in JavaScript and React JS. I am skilled in HTML, CSS,JS, React js, Node js, Express Js and Mongo
+      DB and MYSQL. I have experience with version control using Git and GitHub, facilitating effective collaboration
       and project management.</p>
         <div className="about_me_right"></div>
     </div>

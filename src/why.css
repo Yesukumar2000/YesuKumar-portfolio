@@ -30,7 +30,7 @@ img.why_logo {
 
 .box {
     background-color: #1E2635;
-    width: 100%; /* Adjusted to 100% for full width within .modiv */
+    width: 97%; /* Adjusted to 100% for full width within .modiv */
     max-width: 260px; /* Maximum width to maintain consistent sizing */
     height: 200px;
     border-radius: 20px;
@@ -41,12 +41,12 @@ img.why_logo {
 .neww {
     display: flex;
     height: 250px;
-    width: 100%;
-    justify-content: space-between; /* Distribute items evenly across the container */
+    width: 97%;
+    justify-content: center; /* Distribute items evenly across the container */
 }
 
 .modiv {
-    width: 50%; /* Each .modiv takes up 50% of the parent (.neww) */
+    width: 40%; /* Each .modiv takes up 50% of the parent (.neww) */
     display: flex;
     justify-content: center; /* Center content horizontally */
 }

@@ -5,6 +5,9 @@ import FoodBlog from "./images/FoodBlog.png"
 import Travel from"./images/Travelgo.png"
 import CollegePortal from "./images/CollegePortal.png"
 import { motion } from 'framer-motion';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
+
 const Projects = () => {
    const cards = [
     {
@@ -74,6 +77,13 @@ const Projects = () => {
           explore={card.explore}
         />
       ))}
+    <div>
+      <h1 className="heading">View More Projects on 
+      <a href="https://github.com/Yesukumar2000" target="_blank" rel="noreferrer">
+         <FontAwesomeIcon icon={faGithub} aria-hidden="true" />
+       </a>
+      </h1>
+      </div>
     </div>
     </div>
     </motion.div>
